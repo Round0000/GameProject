@@ -1,0 +1,91 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Atkinson Hyperlegible";
+}
+
+.container {
+  padding: 2em;
+}
+
+/* Fight Area */
+
+#areaFight {
+  border: 1px solid #3335;
+  padding: .5em;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  overflow-x: scroll;
+}
+
+.character {
+  background-color: dodgerblue;
+  color: #fff;
+  padding: 1em;
+  width: 10em;
+  margin: .25em;
+}
+
+.character p {
+  font-size: .8rem;
+  border: 1px solid #fff;
+  margin-bottom: .25em;
+  padding: .25em .5em;
+}
+
+.character p span {
+  display: inline-block;
+  font-size: 1.1rem;
+  margin-left: 1em;
+}
+
+.character .charAlias {
+  background-color: #fff;
+  color: dodgerblue;
+}
+
+.character .charAlias span {
+  margin-left: 0;
+  font-weight: bold;
+}
+
+.enemy {
+  grid-column: -1;
+  position: relative;
+  background-color: salmon;
+}
+
+.enemy .charAlias {
+  color: salmon;
+}
+
+.enemy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: transparent;
+  font-size: 1.25rem;
+  opacity: 0;
+  transition: all .3s;
+  cursor: pointer;
+  outline: 2px solid crimson;
+}
+
+.enemy:hover::before {
+  opacity: 1;
+}
+
+#hit {
+  margin: auto;
+  text-align: center;
+  color: crimson;
+}
